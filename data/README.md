@@ -16,3 +16,9 @@ https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=4610003801
 4. What are factors involved in mortgage delinquency?
 5. What factors ensure successful payment of mortgage? 
 6. Is there a relationship between home ownership and demographics?
+
+## Additional directions:
+
+1. Is there data from Bank of Canada (interest rate changes from commercial bank)
+2. Data on real estate market, percentage of "foreign buyers" vs "local buyers", how many are single vs multiple property owners
+
