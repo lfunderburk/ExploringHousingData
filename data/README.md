@@ -6,6 +6,8 @@ https://www.cmhc-schl.gc.ca/en/professionals/housing-markets-data-and-research/h
 
 https://www150.statcan.gc.ca/n1/daily-quotidien/210323/dq210323a-cansim-eng.htm
 
+https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=4610003801
+
 ## Questions:
 
 1. How has the value of property changed in the last 5-10 years?
