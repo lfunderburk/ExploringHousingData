@@ -34,16 +34,27 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = JupyterDash(__name__, external_stylesheets=external_stylesheets)
 
 app.layout = html.Div([
-    dcc.Dropdown(
-        id='province',
-        options=[{'label': i, 'value': i} for i in df_mortgage_long['Geography'].unique()],
-        value= 'Newfoundland'
-    ),
+    html.Div([
+        html.H1("Housing graphs"),
+        dcc.Dropdown(
+            id='province',
+            options=[{'label': i, 'value': i} for i in df_mortgage_long['Geography'].unique()],
+            value= 'Newfoundland'
+        )
+    ]),
     
-    dcc.Graph(id='graph-mortgage'),
-    dcc.Graph(id='graph-mortgage-income')
-    
+    html.Div([
+        html.Div([
+            dcc.Graph(id='graph-mortgage', figure={'data': [{'y': [1, 2, 3]}]})
+        ], className="six columns"),
+
+        html.Div([
+            dcc.Graph(id='graph-mortgage-income', figure={'data': [{'y': [1, 2, 3]}]})
+        ], className="six columns"),
+    ], className="row")
 ])
+
+
 
 @app.callback(
     Output('graph-mortgage', 'figure'),
@@ -66,9 +77,7 @@ def update_figure(selected_province):
     Input('province', 'value'))
 def mortgage_income(selected_province):
     df = df_mortgage_income
-     
-    #df[df.Income.T.index == selected_province]
-    
+        
     fig2 = px.scatter(df.Income[selected_province]/df.Mortgage[selected_province]*100, 
                       title = f'Time series of income/mortgage in {selected_province}',
                      hover_name='value')
@@ -77,11 +86,3 @@ def mortgage_income(selected_province):
 #-----------------------------------------------------------------------
 if __name__ == '__main__':  
     app.run_server(mode='inline')  # 'inline' so that we don't have to open a new browser
-
-#   
-# fig = px.scatter(pivot_income_province.Income/ pivot_income_province.Mortgage*100, 
-#           facet_col="Geography",
-#          title="Income to mortgage by province")
-
-#fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
-#fig.show()
