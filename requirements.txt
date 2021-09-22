@@ -10,7 +10,7 @@ plotly==4.14.3
 pandas==1.2.4
 numpy==1.20.2
 numpydoc==1.1.0
-setuptools==49.2.0.post20200714
+setuptools==49.0.1
 pytz==2021.1
 python-dateutil==2.8.1
 gunicorn
